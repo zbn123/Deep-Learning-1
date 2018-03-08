@@ -177,7 +177,7 @@ class FNN(Model):
             tf.global_variables_initializer().run(session = self.sess)
 
 
-class PNN1(Model):
+class IPNN(Model):
     def __init__(self,field_sizes=None, embed_size=10, layer_size=None, layer_acts=None, drop_out=None,
                  embed_l2=None, layer_l2=None,init_path=None,opt_algo='gd',learning_rate=1e-2,random_seed=None):
         Model.__init__(self)
@@ -255,7 +255,7 @@ class PNN1(Model):
             tf.global_variables_initializer().run(session=self.sess)
 
 
-class PNN2(Model):
+class OPNN(Model):
     def __init__(self,field_sizes=None, embed_size=10, layer_size=None, layer_acts=None, drop_out=None,
                  embed_l2=None, layer_l2=None,init_path=None,opt_algo='gd',learning_rate=1e-2,random_seed=None,
                  layer_norm=True):

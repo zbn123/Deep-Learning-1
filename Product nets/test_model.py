@@ -20,7 +20,7 @@ if not p in sys.path:
     sys.path.append(p)
 
 import utils
-from PNN import FNN,LR,FM,PNN1,PNN2
+from deep_ctr import FNN,LR,FM,IPNN,OPNN
 
 train_file = r'./data/train.fm.txt'
 test_file = r'./data/test.fm.txt'
@@ -49,10 +49,10 @@ num_features = len(utils.FIELD_SIZES)
 field_sizes = utils.FIELD_SIZES
 field_offsets = utils.FIELD_OFFSETS
 
-algo = 'pnn2'
+algo = 'ipnn'
 
 # 设置模型参数
-if algo in ['fnn','pnn1','pnn2']:
+if algo in ['fnn','ipnn','opnn']:
     train_data = utils.split_data(train_data)
     test_data = utils.split_data(test_data)
     tmp = []
@@ -102,8 +102,8 @@ elif algo == 'fnn':
     print(fnn_params)
     model = FNN(**fnn_params)
 
-elif algo == 'pnn1':
-    pnn1_params = {
+elif algo == 'ipnn':
+    ipnn_params = {
         'field_sizes': field_sizes,
         'embed_size': 10,
         'layer_size': [500, 1],
@@ -115,11 +115,11 @@ elif algo == 'pnn1':
         'layer_l2': [0, 0],
         'random_seed': 0
     }
-    print(pnn1_params)
-    model = PNN1(**pnn1_params)
+    print(ipnn_params)
+    model = IPNN(**ipnn_params)
 
-elif algo == 'pnn2':
-    pnn2_params = {
+elif algo == 'opnn':
+    opnn_params = {
         'field_sizes': field_sizes,
         'embed_size': 10,
         'layer_size': [500, 1],
@@ -132,8 +132,8 @@ elif algo == 'pnn2':
         'random_seed': 0,
         'layer_norm': True,
     }
-    print(pnn2_params)
-    model = PNN2(**pnn2_params)
+    print(opnn_params)
+    model = OPNN(**opnn_params)
 
 def train(model):
     history_score = []
