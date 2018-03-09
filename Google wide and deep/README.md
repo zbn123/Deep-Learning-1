@@ -1,10 +1,4 @@
----
-layout: post
-title: 【paper reading】Wide & Deep Learning for Recommender Systems
-categories: recommendation deep-learning
-author: CC
-tags: recommendation deep-learning
----
+# Wide & Deep Learning for Recommender Systems
 
 > 本文出自Google，是一篇介绍Google Mobile App Store 推荐系统的工程性文章。全文虽只有四页，但却介绍了一个完整的推荐系统框架，可为工程实践、项目提供指导与借鉴。
 > 原文地址：[http://arxiv.org/abs/1606.07792](http://arxiv.org/abs/1606.07792)
