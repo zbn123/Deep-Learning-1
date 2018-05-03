@@ -127,5 +127,10 @@ else:
 return new_h, new_state
 ```
 
-我们只需要关注self._state_is_tuple == True的情况，因为self._state_is_tuple == False的情况将在未来被弃用。返回的隐状态是new_c和new_h的组合，而output就是单独的new_h。如果我们处理的是分类问题，那么我们还需要对new_h添加单独的Softmax层才能得到最后的分类概率输出。
+我们只需要关注self._state_is_tuple == True的情况，因为self._state_is_tuple == False的情况将在未来被弃用。返回的隐状态是new_c和new_h的组合，而output就是单独的new_h。如果我们处理的是分类问题，那么我们还需要对new_h添加单独的**Softmax层**才能得到最后的分类概率输出。
 
+
+
+### 参考文献
+
+[1] TensorFlow中RNN实现的正确打开方式
